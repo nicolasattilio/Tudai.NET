@@ -12,6 +12,22 @@ namespace TUDAI
             if (!IsPostBack)
             {
                 CargarDdls();
+
+                string id = this.Request.QueryString["id"];
+                int idInt = int.Parse(id);
+                var noticia = new Noticia();
+                noticia.Id = idInt;
+                var Ds = new NoticiaBusiness().GetNoticiaById(noticia);
+                var noticiaEditada = Ds.Tables[0].Rows[0];
+                string titulo = noticiaEditada["titulo"].ToString();
+                string cuerpo = noticiaEditada["cuerpo"].ToString();
+                string date = noticiaEditada["fecha"].ToString();
+
+                var calendar = DateTime.Parse(date);
+                this.txt_titulo.Text = titulo;
+                this.txt_cuerpo.Text = cuerpo;
+                this.date_fecha.SelectedDate = calendar;
+                
             }
         }
 

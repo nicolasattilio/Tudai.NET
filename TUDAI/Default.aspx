@@ -14,6 +14,7 @@
             <asp:BoundField DataField="cuerpo" HeaderText="Cuerpo" />
             <asp:BoundField DataField="id_categoria" HeaderText="Id Categoria" />
             <asp:BoundField DataField="fecha" HeaderText="Fecha" />
+            <asp:HyperLinkField DataNavigateUrlFormatString="/alta_noticia.aspx?id={0}" DataTextField="id" DataTextFormatString="{0:c}" HeaderText="Editar" Target="_blank" Text="Editar" />
         </Columns>
     </asp:GridView>
 
